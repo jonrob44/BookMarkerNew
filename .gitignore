@@ -19,6 +19,9 @@ Homestead.json
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
 
+#docker-compose
+docker-compose.yml
+code/.env
 
 # Created by https://www.gitignore.io/api/phpstorm
 # Edit at https://www.gitignore.io/?templates=phpstorm
