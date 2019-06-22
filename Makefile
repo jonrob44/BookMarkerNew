@@ -11,3 +11,11 @@ key-generate:
 
 config-cache:
 	docker-compose exec app php artisan config:cache
+
+config-clear:
+	docker-compose exec app php artisan config:clear
+
+tests:
+	docker-compose exec app vendor/bin/phpunit
+
+
