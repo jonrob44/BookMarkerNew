@@ -27,4 +27,15 @@ class BookTest extends TestCase
         $this->assertDatabaseHas('books', $attributes);
         $this->get('/books')->assertSee($attributes['title'], $attributes['ISBN']);
     }
+
+    public function test_a_book_requires_a_title()
+    {
+        $attributes = factory('App\Book')->raw(['title' => '']);
+        $this->post('/books',$attributes)->assertSessionHasErrors('title');
+    }
+    public function test_a_book_requires_a_isbn()
+    {
+        $attributes = factory('App\Book')->raw(['ISBN' => '']);
+        $this->post('/books',$attributes)->assertSessionHasErrors('ISBN');
+    }
 }

@@ -9,7 +9,9 @@ class BooksController extends Controller
 {
     public function store()
     {
-        Book::create( request(['title', 'ISBN']));
+        $attributes = request()->validate(['title' => 'required', 'ISBN' => 'required']);
+
+        Book::create($attributes);
 
         return redirect('/books');
     }
