@@ -1,7 +1,7 @@
 CWD := $(abspath $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST))))))
 
 composer-install:
-	docker run --rm -v $(CWD)/code:/app composer install
+	docker-compose exec app composer install
 
 chown:
 	sudo chown -R $(USER): $(CWD)
