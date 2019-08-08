@@ -8,4 +8,9 @@ class Book extends Model
 {
     protected $guarded = [];
 
+
+    public function path()
+    {
+        return "/books/" . $this->id;
+    }
 }

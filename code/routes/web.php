@@ -18,3 +18,8 @@ Route::get('/', function () {
 
 Route::post('/books', 'BooksController@store');
 Route::get('/books', 'BooksController@index');
+Route::get('/books/{book}', 'BooksController@show')->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

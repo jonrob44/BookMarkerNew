@@ -9,9 +9,12 @@ class BooksController extends Controller
 {
     public function store()
     {
-        $attributes = request()->validate(['title' => 'required', 'ISBN' => 'required']);
+        $attributes = request()->validate(
+            ['title' => 'required', 'ISBN' => 'required']);
 
-        Book::create($attributes);
+         auth()->user()->books()->create($attributes);
+
+
 
         return redirect('/books');
     }
@@ -21,5 +24,10 @@ class BooksController extends Controller
         $books = Book::all();
 
         return view('books.index', compact('books'));
+    }
+
+    public function show(Book $book)
+    {
+        return view('books.show', compact('book'));
     }
 }
